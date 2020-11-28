@@ -1,0 +1,275 @@
+{
+  "project_info": {
+    "project_number": "879942477389",
+    "firebase_url": "https://yourdoctor-e2631.firebaseio.com",
+    "project_id": "yourdoctor-e2631",
+    "storage_bucket": "yourdoctor-e2631.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:879942477389:android:eda37cd02cd67aee151e04",
+        "android_client_info": {
+          "package_name": "com.dec"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "879942477389-nh2j0p9faop080oja7ksli8kmh551rbs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRvq2pD8ud4Dza8bbiOKWaff-JCKiVELk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "879942477389-nh2j0p9faop080oja7ksli8kmh551rbs.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "879942477389-a05cqioag20klp5494hu8to5uoa5stsj.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.doctorApp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:879942477389:android:e451f027d79ffde6151e04",
+        "android_client_info": {
+          "package_name": "com.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "879942477389-nh2j0p9faop080oja7ksli8kmh551rbs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRvq2pD8ud4Dza8bbiOKWaff-JCKiVELk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "879942477389-nh2j0p9faop080oja7ksli8kmh551rbs.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "879942477389-a05cqioag20klp5494hu8to5uoa5stsj.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.doctorApp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:879942477389:android:23bf08065c746306151e04",
+        "android_client_info": {
+          "package_name": "com.example.doctor_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "879942477389-7c3ihmi9bmr6ms35sqgrbhomfb2n2s6a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.doctor_app",
+            "certificate_hash": "65cf87e58cd9c533ded7366f8e4657f784ceb31a"
+          }
+        },
+        {
+          "client_id": "879942477389-nh2j0p9faop080oja7ksli8kmh551rbs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRvq2pD8ud4Dza8bbiOKWaff-JCKiVELk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "879942477389-nh2j0p9faop080oja7ksli8kmh551rbs.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "879942477389-a05cqioag20klp5494hu8to5uoa5stsj.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.doctorApp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:879942477389:android:e3a790ac318de59d151e04",
+        "android_client_info": {
+          "package_name": "com.example.example"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "879942477389-osgr1nkso646fe8s4ttpohkr4nib2rs1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.example",
+            "certificate_hash": "5bb402792fa0750b80390a68ef7b5a066b599148"
+          }
+        },
+        {
+          "client_id": "879942477389-nh2j0p9faop080oja7ksli8kmh551rbs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRvq2pD8ud4Dza8bbiOKWaff-JCKiVELk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "879942477389-nh2j0p9faop080oja7ksli8kmh551rbs.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "879942477389-a05cqioag20klp5494hu8to5uoa5stsj.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.doctorApp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:879942477389:android:ed868f63cd36502f151e04",
+        "android_client_info": {
+          "package_name": "com.example.yourdoctor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "879942477389-mn2cg28sdon5gt3qr6rb93se591rbetg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.yourdoctor",
+            "certificate_hash": "65cf87e58cd9c533ded7366f8e4657f784ceb31a"
+          }
+        },
+        {
+          "client_id": "879942477389-74eit2o9kclnl5hddcvc32im99difgm0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.yourdoctor",
+            "certificate_hash": "5bb402792fa0750b80390a68ef7b5a066b599148"
+          }
+        },
+        {
+          "client_id": "879942477389-nh2j0p9faop080oja7ksli8kmh551rbs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRvq2pD8ud4Dza8bbiOKWaff-JCKiVELk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "879942477389-nh2j0p9faop080oja7ksli8kmh551rbs.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "879942477389-a05cqioag20klp5494hu8to5uoa5stsj.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.doctorApp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:879942477389:android:1ef216493fc81665151e04",
+        "android_client_info": {
+          "package_name": "com.gunschu.jitsi_meet_example"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "879942477389-11mjqrdedrns0sicd9h0eah6b2i1kore.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gunschu.jitsi_meet_example",
+            "certificate_hash": "aff7892d7b1818014a7cf6ccb08e94b5bdee6e6a"
+          }
+        },
+        {
+          "client_id": "879942477389-2tceogu1ncbpuldkrt3hnb89ai06sjbp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gunschu.jitsi_meet_example",
+            "certificate_hash": "5bb402792fa0750b80390a68ef7b5a066b599148"
+          }
+        },
+        {
+          "client_id": "879942477389-nh2j0p9faop080oja7ksli8kmh551rbs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRvq2pD8ud4Dza8bbiOKWaff-JCKiVELk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "879942477389-nh2j0p9faop080oja7ksli8kmh551rbs.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "879942477389-a05cqioag20klp5494hu8to5uoa5stsj.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.doctorApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
