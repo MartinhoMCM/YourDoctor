@@ -16,7 +16,7 @@ import 'package:jitsi_meet_example/models/user.dart';
 import 'package:path/path.dart';
 
 class Api {
-  static const server = 'http://192.168.137.241:3000';
+  static const server = 'http://192.168.1.44:3000';
   //Endpoint
   static const endpoint = '$server/api/login';
   static const endpoint1 = '$server/api/sintomasFind';
@@ -80,7 +80,7 @@ class Api {
     try {
       print('pkPaciente $pkUsuario');
       var response =
-          await client.post('http://192.168.137.241:3000/api/obter-dados-paciente', body: {
+          await client.post('http://192.168.1.44:3000/api/obter-dados-paciente', body: {
         "pkUsuario": "$pkUsuario",
       });
     print('response ${response.body}');
@@ -296,7 +296,7 @@ class Api {
 
       if (response.statusCode >= 200 && response.statusCode <= 400) {
         List<dynamic> _dynamic = json.decode(response.body);
-        print('response body $_dynamic');
+        print('response body online doctor $_dynamic');
 
         _dynamic.forEach((element) {
           doctors.add(CandidateDoctor.fromJson(element));

@@ -8,8 +8,6 @@ import 'package:jitsi_meet_example/ui/colors/colorsUI.dart';
 Map<TabItem, String> tabName = {
   TabItem.home: 'Home',
   TabItem.appointment: 'Apontamento',
-  TabItem.chat: 'Chat',
-  TabItem.search :'Notificação',
   TabItem.person:'Person'
   
 };
@@ -17,9 +15,9 @@ Map<TabItem, String> tabName = {
 Map<TabItem, Color> activeTabColor = {
   TabItem.home:  blueColor,
   TabItem.appointment:  blueColor,
-  TabItem.chat:  blueColor,
+
   TabItem.person: blueColor,
-  TabItem.search: blueColor
+
 
 };
 
@@ -35,7 +33,7 @@ class BottomNavigation extends StatelessWidget {
       items: [
         _buildItem(tabItem: TabItem.home),
         _buildItem(tabItem: TabItem.appointment),
-        _buildItem(tabItem: TabItem.chat),
+    
         _buildItem(tabItem: TabItem.person),
       ],
       onTap: (index) => onSelectTab(
@@ -53,10 +51,6 @@ class BottomNavigation extends StatelessWidget {
       case TabItem.home:icon = Icons.home;
       break;
       case TabItem.appointment:icon = Icons.calendar_today;
-      break;
-      case TabItem.chat:icon = Icons.chat;
-       break;
-      case TabItem.search:icon = Icons.search;
       break;
       case TabItem.person:icon = Icons.person;
       break;

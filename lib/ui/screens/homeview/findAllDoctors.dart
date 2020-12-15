@@ -149,10 +149,12 @@ class FindAllDoctorsState extends State<FindAllDoctors> {
               desiredAccuracy: LocationAccuracy.high);
           setState(() {
             _latitude = position.latitude;
-            print('latidue $_latitude');
             _longitude = position.longitude;
+                html_String = MyLocation.getMyLocation(_latitude, _longitude);
+
           });
-          html_String = MyLocation.getMyLocation(_latitude, _longitude);
+      
+          print('html $html_String');
         } on PlatformException catch (e) {
           print('PlatformException $e');
         }
@@ -195,11 +197,12 @@ class FindAllDoctorsState extends State<FindAllDoctors> {
             ),
           ),
           backgroundColor: solidWhiteColor,
-          body: _latitude != null &&
-                  _latitude != 0.0 &&
-                  _longitude != 0.0 &&
-                  html_String.isNotEmpty
-              ? Container(
+          body:
+                   _latitude != 0.0 &&
+                  _longitude != 0.0 
+                
+              ?  
+              Container(
                   child: Stack(
                     children: [
                       Positioned(
@@ -410,11 +413,11 @@ class FindAllDoctorsState extends State<FindAllDoctors> {
                     ],
                   ),
                 )
-              : Dialog(
+               : Dialog(
                   child: contentWidget(),
                   backgroundColor: whiteColor,
                 ),
-        );
+         );
       }
     
       void checkColor(int index) {

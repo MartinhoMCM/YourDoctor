@@ -8,4 +8,4 @@ enum UserType { Patient, Doctor, Unknown }
 
 //HomePage views
 
-enum TabItem { home, appointment, chat, search, person }
+enum TabItem { home, appointment,person }

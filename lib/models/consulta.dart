@@ -6,6 +6,9 @@ class Consulta
   String especialidade;
   String nomeDoctor;
   String emailDoctor;
+  int me;
+
+  Consulta({this.dataConsulta, this.emailDoctor, this.especialidade, this.nomeDoctor, this.me, this.pkMedico});
 
   Consulta.fromJson(Map map)
   {

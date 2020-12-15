@@ -24,11 +24,13 @@ class ServiceMessage{
 
     close()
     {
-      notifyController.close();
+     //notifyController.close();
+      
     }
 
       void dispose(){
           _controller.close();
+        //  notifyController.close();
       }
 
      void EnviarMessage(MessageUserFirebase  sms) async{
@@ -38,7 +40,10 @@ class ServiceMessage{
      }
 
 
-     void getAllMesaages(String iddoctor , String idpaciente) async{
+     void getAllMesaages(int iddoctor , int idpaciente) async{
+
+       print('iddoctor $iddoctor');
+       print('idpaciente $idpaciente');
         controlMessageStream =false;
         var  QUERY =  _firebase.collection("ChatURl")
             .where('iddoctor',isEqualTo: iddoctor)
@@ -114,25 +119,8 @@ class ServiceMessage{
       
      }
 
-    Future getDoctorNotifcation() async
-     {
-       print('get notification');
-           var query= await _firebase.collection("VideoCall").where("iddoctor", isEqualTo: 2 ).where("idpaciente", isEqualTo: 1).where("statusnome", isEqualTo: "solicitado"). snapshots();
 
-           query.listen((dados) {
-             notifies.clear();
-        
-           for(int index = 0 ;  index <dados.documents.length ; ++index){
-                    // List<Notify> _novo =Notify.fromJson(dados.documents[index]);
-                    print('listen data ${dados.documents[index]}');
-  
-                    Map map= dados.documents[index].data;
-                    notifies.add(Notify.fromJson(map));  
-                 }
-                 notifyController.sink.add(notifies);
-           });
-
-     }
+ 
 
 }
 
@@ -143,7 +131,7 @@ class Notify
   int patientId;
   String url;
   Timestamp fieldValue;
-
+  String status; 
   Notify({this.doctorId, this.patientId, this.url});
 
   Notify.fromJson(Map map)
@@ -153,8 +141,7 @@ class Notify
     this.patientId =map['idpaciente'];
     this.url =map['url'];
     this.fieldValue =map['dateTime'];
-
-
+    this.status=map['statusnome'];
 
   }
 

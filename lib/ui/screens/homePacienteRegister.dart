@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:jitsi_meet_example/main.dart';
 import 'package:jitsi_meet_example/models/paciente.dart';
 import 'package:jitsi_meet_example/models/province.dart';
@@ -16,6 +17,8 @@ import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 import 'package:pin_code_text_field/pin_code_text_field.dart';
 import '../colors/colorsUI.dart';
+import 'package:path/path.dart' as path;
+
 
 class HomePacienteRegister extends StatefulWidget {
   State<StatefulWidget> createState() => new HomeDoctor();
@@ -102,6 +105,7 @@ class HomeDoctor extends State<HomePacienteRegister> {
           source: ImageSource.camera, maxWidth: 60, maxHeight: 60);
       setState(() {});
       _image = image;
+      
     } catch (e) {
       print(e);
     }
@@ -126,6 +130,7 @@ class HomeDoctor extends State<HomePacienteRegister> {
           source: ImageSource.gallery, maxWidth: 60, maxHeight: 60);
       setState(() {});
       _image = image;
+     
     } catch (e) {
       print(e);
     }
@@ -158,6 +163,8 @@ class HomeDoctor extends State<HomePacienteRegister> {
       if (ListaMunicipiosServer.length != 0) {
         setState(() {
           this._listadeMunicipiosGeral = ListaMunicipiosServer;
+         
+        
         });
       }
     });
@@ -165,9 +172,13 @@ class HomeDoctor extends State<HomePacienteRegister> {
     super.initState();
   }
 
+  BuildContext buildContext;
+
   // fim dos campos
   @override
   Widget build(BuildContext context) {
+    buildContext=context;
+
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: new AppBar(
@@ -302,7 +313,9 @@ class HomeDoctor extends State<HomePacienteRegister> {
                 error = "Falha ao conectar com o servidor";
               }
             } else if (this.currentStep == 3) {
-              setStepState(currentStep);
+
+              print('currentstep 3');
+             // setStepState(currentStep);
               _ativeStep4 = true;
               setState(() {
                 _back = true;
@@ -331,35 +344,66 @@ class HomeDoctor extends State<HomePacienteRegister> {
                   await adicionar.RegistrarPaciente(novoPaciente, context)
                       .whenComplete(() {
                 //limpando os dados do usuario
-                _nomeCompleto.clear();
-                _data_nascimento.clear();
-                _grupo_sanguineo.clear();
-                _altura.clear();
-                _email.clear();
-                _senha.clear();
-                _peso.clear();
-                _dataNascimentoUser = null;
+                //_nomeCompleto.clear();
+                //_data_nascimento.clear();
+                //_grupo_sanguineo.clear();
+                //_altura.clear();
+                //_email.clear();
+                //_senha.clear();
+                //_peso.clear();
+                //n_dataNascimentoUser = null;
                 // fim do limpando dos dados
 
-                if (_image != null) {
-                  adicionar.GetUploadFile(_image);
-                }
-              }).then((value) {
-                switch (value) {
-                  case true:
-                    sucessRegister();
+                
+              });
+               
+               switch(isRegistered)
+               {
+                 case true:
+                 //if(_image!=null)
+                 //{
+                // String result=  await uploadFile(_image);
+                  //            adicionar.addUser(name: _nomeCompleto.text, email: _email.text, fileUrl: result);
+                // }
+
+                 print('success $isRegistered');
+                 
+      showDialog(
+        context: context,
+        builder: (_) => AlertDialog(
+              content: Container(
+                width: 300,
+                height: 100,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.check_circle, color: primaryColor, size: 32),
+                    SizedBox(
+                      height: 4,
+                    ),
+                    Text(
+                      "Cadastrado com Sucesso",
+                      style: TextStyle(color: Colors.green),
+                    )
+                  ],
+                ),
+              ),
+            ));
+            print('pop here');
+
+            Navigator.pop(buildContext);
+        
                     break;
                   case false:
                     errorRegistering();
                     break;
-                }
-                return true;
-              });
+               }
 
               if (ServicePaciente.status == "error") {
                 connectionError();
               }
-              this.currentStep = 0;
+              //this.currentStep = 0;
             }
           },
           onStepCancel: () {
@@ -968,7 +1012,7 @@ class HomeDoctor extends State<HomePacienteRegister> {
                   });
                 },
                 onDone: (text) {
-                  print("DONE CONTROLLER ${controller.text}");
+                 
                   if (controller.text.contains(_code)) {
                     setState(() {
                       color = primaryColor;
@@ -984,7 +1028,7 @@ class HomeDoctor extends State<HomePacienteRegister> {
                // wrapAlignment: WrapAlignment.start,
                 pinBoxDecoration:
                     ProvidedPinBoxDecoration.defaultPinBoxDecoration,
-                pinTextStyle: TextStyle(fontSize: 15.0),
+                pinTextStyle: TextStyle(fontSize: 13.0),
                 pinTextAnimatedSwitcherTransition:
                     ProvidedPinBoxTextAnimation.defaultNoTransition,
                 pinTextAnimatedSwitcherDuration: Duration(milliseconds: 300),
@@ -1010,30 +1054,8 @@ class HomeDoctor extends State<HomePacienteRegister> {
   }
 
   void sucessRegister() {
-    showDialog(
-        context: context,
-        builder: (_) => AlertDialog(
-              content: Container(
-                width: 300,
-                height: 100,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(Icons.check_circle, color: primaryColor, size: 32),
-                    SizedBox(
-                      height: 4,
-                    ),
-                    Text(
-                      "Cadastrado com Sucesso",
-                      style: TextStyle(color: Colors.green),
-                    )
-                  ],
-                ),
-              ),
-            ));
-    Navigator.of(context).pushAndRemoveUntil(
-        MaterialPageRoute(builder: (_) =>LoginView()), (route) => false);
+    //Navigator.of(context).pushAndRemoveUntil(
+      //  MaterialPageRoute(builder: (_) =>LoginView()), (route) => false);
   }
 
   void errorRegistering() {
@@ -1144,6 +1166,7 @@ class HomeDoctor extends State<HomePacienteRegister> {
 
   Widget DropProvincias() {
     return DropdownButtonFormField(
+      
       isExpanded: true,
       decoration: InputDecoration(
         border: InputBorder.none,
@@ -1185,4 +1208,27 @@ class HomeDoctor extends State<HomePacienteRegister> {
     else
       return null;
   }
+
+
+    Future<String> uploadFile(File image) async {
+    print('image path ${image.path}');
+    String fileURL;
+    String basename = path.basename(image.path);
+    try {
+      //setViewState(ViewState.Busy);
+      StorageReference storageReference =
+          FirebaseStorage.instance.ref().child('profilephoto/${basename}}');
+
+      StorageUploadTask uploadTask = storageReference.putFile(image);
+      await uploadTask.onComplete;
+      print('File Uploaded');
+      fileURL = await storageReference.getDownloadURL();
+      print('file url ${fileURL}');
+    } catch (e) {
+      // setViewState(ViewState.Idle);
+      print('error $e');
+    }
+    return fileURL;
+  }
+
 }

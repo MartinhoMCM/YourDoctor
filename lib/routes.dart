@@ -9,7 +9,6 @@ import 'package:jitsi_meet_example/ui/screens/homeview/homeview.dart';
 import 'package:jitsi_meet_example/ui/screens/loginview.dart';
 import 'package:jitsi_meet_example/ui/screens/splashscreen.dart';
 import 'ui/screens/homePacienteRegister.dart';
-import 'ui/screens/chat/videocall.dart';
 
 class Router
 {

@@ -23,6 +23,8 @@ class AppointmentView extends StatefulWidget {
 class AppointmentViewState extends State<AppointmentView>
     with SingleTickerProviderStateMixin {
   List _selectedEvents;
+  int patientId;
+  String patientEmai="";
 
 
   Api _api;
@@ -42,7 +44,7 @@ class AppointmentViewState extends State<AppointmentView>
   @override
   void dispose() {
     _api.dispose();
-
+   
     super.dispose();
   }
 
@@ -54,7 +56,8 @@ class AppointmentViewState extends State<AppointmentView>
   @override
   Widget build(BuildContext context) {
    
-   int patientId = Provider.of<Patient>(context).pkPaciente;
+   patientId = Provider.of<Patient>(context).pkPaciente;
+   patientEmai =Provider.of<Patient>(context).email;
 
     return Scaffold(
       // backgroundColor: solidWhiteColor,
@@ -172,6 +175,8 @@ class AppointmentViewState extends State<AppointmentView>
                   ),
                   onTap: () {
                     print('event ${event.dataConsulta}');
+                    Consulta consulta =event;
+                    consulta.me=patientId;
                     widget.onConsulta(event);
                     widget.onPush(1);
                   },

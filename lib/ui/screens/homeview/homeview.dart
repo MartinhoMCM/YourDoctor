@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:jitsi_meet_example/models/news.dart';
 import 'package:jitsi_meet_example/models/paciente.dart';
 import 'package:jitsi_meet_example/models/symptom.dart';
 import 'package:jitsi_meet_example/ui/fonts/text_style.dart';
@@ -19,18 +21,14 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  Firestore firestore=Firestore.instance;
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   List<Symptom> symptons;
   bool visible = false;
   String URL =
       'https://images.unsplash.com/photo-1512785470245-e9c5bf9016d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60';
 
-  //var province = AuthenticationService.user.province;
-  //var county = AuthenticationService.user.county;
-
-  //Todas atividades recentes comecam com numero maior ou igual a 14
-  
-  
+ 
 
   @override
   void initState() {
@@ -231,7 +229,8 @@ class _HomeViewState extends State<HomeView> {
                     ),
                     leading: Icon(Icons.assignment_return),
                     onTap: () {
-                    //  Navigator.pushNamedAndRemoveUntil(context, 'login', (route) => false)
+
+                      Navigator.pushNamedAndRemoveUntil(context, 'login', (route) => false);
                     },
                   ),
                 ),
@@ -365,26 +364,38 @@ class _HomeViewState extends State<HomeView> {
             SliverList(
                 delegate: SliverChildListDelegate([
                   
-                  Container(
-                    child: Card(
-                        child: ListTile(
-                          title: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text('Como se prevenir da COVID-19', style: patternTextBoldStyle,),
-                             InkWell(
-                               onTap: ()
-                               {
-                                 seeMore(14);
-                               },
-                               child: Text('Ver mais', style:appoTextStyle))
-                            ],
-                            ),
-                          subtitle: Text('Autor, doctor Angelo', style: patternTextStyle,),
+                 FutureBuilder<DocumentSnapshot>(
+                   future:firestore.collection('news').document('yVTHNbrDtwKh8mvoLAVh').get() ,
+                  builder: (context, snapshot){
+                       if(snapshot.hasData){
+
+                         News news =News.fromJson(snapshot.data.data);
+   
+        return Container(
+                      child: Card(
+                          child: ListTile(
+                            title: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text('${news.title}', style: patternTextBoldStyle,),
+                               InkWell(
+                                 onTap: ()
+                                 {
+                                   seeMore(14);
+                                 },
+                                 child: Text('Ver mais', style:appoTextStyle))
+                              ],
+                              ),
+                            subtitle: Text('Autor, ${news.author}', style: patternTextStyle,),
                 
-                        ),
-                    ),
+                          ),
+                      ),
+                    );
+              
+                       }
+                       else return Container(height: 0.0,width: 0.0,);
+                 }
                   ),
                
 

@@ -23,8 +23,7 @@ class _AppState extends State<App> {
   Map<TabItem, GlobalKey<NavigatorState>> navigatorKeys = {
     TabItem.home: GlobalKey<NavigatorState>(),
     TabItem.appointment: GlobalKey<NavigatorState>(),
-    TabItem.chat: GlobalKey<NavigatorState>(),
-    TabItem.search: GlobalKey<NavigatorState>(),
+   
     TabItem.person: GlobalKey<NavigatorState>(),
   };
 

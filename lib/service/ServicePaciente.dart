@@ -1,6 +1,7 @@
 
 import 'dart:convert';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as  http;
 import 'package:flutter/material.dart';
@@ -12,6 +13,7 @@ import 'api.dart';
 
 class ServicePaciente{
 
+      Firestore firestore =Firestore.instance;
       static String status;
       // routing da apis
        String _URL = "${Api.server}/api/registrarUsuario";
@@ -33,15 +35,7 @@ class ServicePaciente{
         // cadastrando o paciente
 
          try{//  catc
-           // hing the files
-
-           Map patient =paciente.toMapPaciente();
-           String paci= json.encode(patient);
-
-           var send =jsonEncode(paciente.toMapPaciente());
-
-           Map map =jsonDecode(send);
-
+         print('telefone ${paciente.telephone}');
      String _retorno;
 
            var response =await client.post(_URL, 
@@ -76,6 +70,24 @@ class ServicePaciente{
          // fim do cadastro do usuario
      }
 
+
+  Future<void> addUser({String fileUrl, String email, String name}) async
+  {
+
+   Map map ={
+     "fileUrl":fileUrl,
+     "email":email,
+     "name":name,
+   }; 
+   try{
+     await firestore.collection('Users').document().setData(map);
+   }
+   catch(e){
+     print('foto nao enviada');
+   }
+  
+
+  }
 
 }
 

@@ -5,9 +5,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class MessageUserFirebase
 {
  
- String iddoctor;
+ int iddoctor;
 
- String idpaciente;
+ int idpaciente;
 
  String message;
 
